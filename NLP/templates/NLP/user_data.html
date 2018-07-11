@@ -1,0 +1,63 @@
+<html>
+	<style>
+	.container {
+		display: block;
+		width:200px;
+		border-style: dashed;
+		border-width: 1px;
+
+
+	}
+	#input_text {
+		height: 50%;
+	    width: 50%;
+	    float: right;
+	    position: absolute;
+	    right: 0%;
+	    top: 0%;
+	}
+
+	#user_data {
+		border-style:dotted;
+		border-width:1px;
+		width:25%;
+		position: relative;
+	}
+</style>
+    <head>
+    	<Title>Khalif Code Sample</Title>
+    </head>
+   	<h1> Khalif Code Sample</h1>
+    <body>
+
+    	<div class = container>
+	    	<h2>Create a new user</h2>
+			<form method="POST">
+				{% csrf_token %}
+				{{form}}
+				First Name:
+				<input type="text" name="firstname"  align="right" width="48" height="48" ></br>
+				Last Name:
+				<input type="text" name="last_name" align="right" width="20" height="20" ></br>
+				Date of Birth:
+				<input type="text" name="date_of_birth" ></br>
+				Age:
+				<input type="text" name="age" ></br>
+				Title:
+				<input type="text" name="title" ></br>
+				<button type="submit">Create new user</button>
+			</form>
+		</div>
+    	<div id = 'user_data'>
+   	    	{% for user in user %} 
+	    		First Name:{{ user.first_name}}</br>
+	    		Last Name:{{ user.last_name}}</br>
+	    		Date of Birth:{{user.date_of_birth}}</br>
+	    		Age: {{user.age}}</br>
+	    		Title: {{user.title}}</br></br>
+	    	{% endfor %}
+    	</div>
+
+	
+    </body>
+</html>
